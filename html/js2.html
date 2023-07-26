@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch request</title>
+</head>
+<body>
+<div>
+  <code id="output"></code>
+  <br>
+  <input type="text" id="input" value="">
+  <br>
+  <button onclick="getPost()">Get POST</button>
+</div>
+
+<script>
+  function getPost(){
+    const value = document.getElementById("input").value;
+    fetch('https://jsonplaceholder.typicode.com/posts/' + value)
+            .then((response) => response.json())
+            .then((json) => {
+              document.getElementById("output").innerText = JSON.stringify(json)
+            });
+  }
+</script>
+</body>
+</html>

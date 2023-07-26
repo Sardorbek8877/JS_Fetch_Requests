@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+        h3{
+            color: darkred;
+            font-size: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>JavaScript Examples</h1>
+<h2 id="message"></h2>
+<i id="time"></i>
+
+<button onclick="sayHello()">Say Hi</button>
+<button onclick="time()">What Time is it?</button>
+<h3 id="current_time"></h3>
+
+<div>
+    <h2 id="output"></h2>
+    <input type="text" id="input">
+    <button onclick="calculate()">Calculate</button>
+</div>
+
+<script>
+
+    function calculate(){
+        const inputElement = document.getElementById("input");
+        const outputElement = document.getElementById("output");
+        try {
+            const  result = eval(inputElement.value)
+            outputElement.innerText = result;
+        }
+        catch (e){
+            outputElement.innerText = "Invalid input";
+        }
+    }
+
+    setInterval(printLocalTime, 1000)
+    function sayHello(){
+        const htmlElement = document.getElementById("message")
+        htmlElement.innerText = "Hello World!"
+    }
+
+    function time(){
+        const htmlElement = document.getElementById("time")
+        htmlElement.innerText = new Date().toLocaleTimeString()
+    }
+
+    function printLocalTime(){
+        document.getElementById("current_time").innerText = new Date().toLocaleTimeString();
+    }
+</script>
+</body>
+</html>
